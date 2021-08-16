@@ -1,5 +1,4 @@
 import random
-
 def vencedor(resultado):
     if resultado == "win":
      print("O jogador Venceu!")
@@ -7,7 +6,6 @@ def vencedor(resultado):
      print("O jogador perdeu")
     else:
      print("Deu velha!")
-
 def vencedor_2P(resultado):
     if resultado == "win":
      print("O jogador_1 Venceu!")
@@ -15,7 +13,6 @@ def vencedor_2P(resultado):
      print("O jogador_2 Venceu!")
     else:
      print("Deu velha!")
-
 def comparar(a, b, c, d, e, f, g, h, i, vs):
  if a == "X" and b == "X" and c == "X":
   return "win"
@@ -23,33 +20,28 @@ def comparar(a, b, c, d, e, f, g, h, i, vs):
   return "win"
  elif g == "X" and h == "X" and i == "X":
   return "win"
-
  elif a == "X" and d == "X" and g == "X":
   return "win"
  elif b == "X" and e == "X" and h == "X":
   return "win"
  elif c == "X" and f == "X" and i == "X":
   return "win"
-
  elif a == "X" and e == "X" and i == "X":
   return "win"
  elif c == "X" and e == "X" and g == "X":
   return "win"
-
  elif a == "O" and b == "O" and c == "O":
   return "lose"
  elif d == "O" and e == "O" and f == "O":
   return "lose"
  elif g == "O" and h == "O" and i == "O":
   return "lose"
-
  elif a == "O" and d == "O" and g == "O":
   return "lose"
  elif b == "O" and e == "O" and h == "O":
   return "lose"
  elif c == "O" and f == "O" and i == "O":
   return "lose"
-
  elif a == "O" and e == "O" and i == "O":
   return "lose"
  elif c == "O" and e == "O" and g == "O":
@@ -58,13 +50,11 @@ def comparar(a, b, c, d, e, f, g, h, i, vs):
   return "empate"
  else:
   return "nada"
-
 def inicio():
  print("=-"*30)
  print("Jogo da velha")
  print("=-"*30)
  modo()
-
 def modo():
  condicao = "true"
  condicao2 = "true"
@@ -96,7 +86,6 @@ def modo():
       print("tente novamente")
   else:
     print("tente novamente")
-
 def modo_campeonato():
  v = 0
  condicao3 = "true"
@@ -141,7 +130,6 @@ def modo_campeonato():
       print("\n")
     else:
      print("tente novamente")
-  
 def modo_singular():
  a = " "
  b = " "
@@ -281,7 +269,6 @@ def modo_singular():
   return "win"
  elif resultado == "lose":
   return "lose"
- 
 def modo_mutiplayer():
  a = " "
  b = " "
@@ -456,5 +443,4 @@ def modo_mutiplayer():
   return "win"
  elif resultado == "lose":
   return "lose"
-  
 inicio()
