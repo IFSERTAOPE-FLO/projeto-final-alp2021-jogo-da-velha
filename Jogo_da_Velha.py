@@ -1,5 +1,4 @@
 import random
-
 def vencedor(resultado):
     if resultado == "win":
      print("O jogador Venceu!")
@@ -14,7 +13,7 @@ def vencedor_2P(resultado):
      print("O jogador_2 Venceu!")
     else:
      print("Deu velha!")
-def comparar(a, b, c, d, e, f, g, h, i):
+def comparar(a, b, c, d, e, f, g, h, i, vs):
  if a == "X" and b == "X" and c == "X":
   return "win"
  elif d == "X" and e == "X" and f == "X":
@@ -47,7 +46,7 @@ def comparar(a, b, c, d, e, f, g, h, i):
   return "lose"
  elif c == "O" and e == "O" and g == "O":
   return "lose"
- elif a != " " and b != " " and c != " " and d != " " and e != " " and f != " " and g != " " and h != " " and i != " ":
+ elif vs == 5:
   return "empate"
  else:
   return "nada"
@@ -90,6 +89,7 @@ def modo_singular():
  jogador_2 = ""
  controle = 0
  controle2 = 0
+ vs = 0
  while resultado == "nada":
   print(" a | b | c    "+" "+a+" | "+b+" | "+c)
   print(" ---------    "+" ---------")
@@ -97,65 +97,68 @@ def modo_singular():
   print(" ---------    "+" ---------")
   print(" g | h | i    "+" "+g+" | "+h+" | "+i)
   controle = 0
-  while controle != 1:
-   jogador_1 = input("Qual será a sua jogada? ")
-   if jogador_1 == "a":
-    if a != "O" and a!= "X":
-     a = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "b":
-    if b != "O" and b!= "X":
-     b = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "c":
-    if c != "O" and c!= "X":
-     c = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "d":
-    if d != "O" and d!= "X":
-     d = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "e":
-    if e != "O" and e!= "X":
-     e = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "f":
-    if f != "O" and f!= "X":
-     f = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "g":
-    if g != "O" and g!= "X":
-      g = "X"
+  vs = vs + 1
+  if resultado == "nada":
+   while controle != 1:
+    jogador_1 = input("Qual será a sua jogada? ")
+    if jogador_1 == "a":
+     if a != "O" and a!= "X":
+      a = "X"
       controle = 1
-    else:
+     else:
       print("essa posição já está ocupada")
-   elif jogador_1 == "h":
-    if h != "O" and h!= "X":
-     h = "X"
-     controle = 1
+    elif jogador_1 == "b":
+     if b != "O" and b!= "X":
+      b = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "c":
+     if c != "O" and c!= "X":
+      c = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "d":
+     if d != "O" and d!= "X":
+      d = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "e":
+     if e != "O" and e!= "X":
+      e = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "f":
+     if f != "O" and f!= "X":
+      f = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "g":
+     if g != "O" and g!= "X":
+       g = "X"
+       controle = 1
+     else:
+       print("essa posição já está ocupada")
+    elif jogador_1 == "h":
+     if h != "O" and h!= "X":
+      h = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
     else:
-     print("essa posição já está ocupada")
-   else:
-    if i != "O" and i!= "X":
-     i = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-  resultado = comparar(a, b, c, d, e, f, g, h, i)
+     if i != "O" and i!= "X":
+      i = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+  resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
   controle2 = 0
-  while controle2 != 1:
+  if resultado == "nada":
+   while controle2 != 1:
     jogador_2 = random.randint(1,9)
     if jogador_2 == 1 and a != "O" and a!= "X":
       a = "O"
@@ -193,7 +196,7 @@ def modo_singular():
        i = "O"
        print("O jogador_2 escolheu a posição i")
        controle2 = 1
-    resultado = comparar(a, b, c, d, e, f, g, h, i)
+    resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
  print(" a | b | c    "+" "+a+" | "+b+" | "+c)
  print(" ---------    "+" ---------")
  print(" d | e | f    "+" "+d+" | "+e+" | "+f)
@@ -215,130 +218,79 @@ def modo_mutiplayer():
  jogador_2 = ""
  controle = 0
  controle2 = 0
+ vs = 0
  print(" a | b | c    "+" "+a+" | "+b+" | "+c)
  print(" ---------    "+" ---------")
  print(" d | e | f    "+" "+d+" | "+e+" | "+f)
  print(" ---------    "+" ---------")
  print(" g | h | i    "+" "+g+" | "+h+" | "+i)
  while resultado == "nada":
+  vs = vs + 1
   controle = 0
-  while controle != 1:
-   jogador_1 = input("Qual será a sua jogada Jogador_1? ")
-   if jogador_1 == "a":
-    if a != "O" and a!= "X":
-     a = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "b":
-    if b != "O" and b!= "X":
-     b = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "c":
-    if c != "O" and c!= "X":
-     c = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "d":
-    if d != "O" and d!= "X":
-     d = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "e":
-    if e != "O" and e!= "X":
-     e = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "f":
-    if f != "O" and f!= "X":
-     f = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   elif jogador_1 == "g":
-    if g != "O" and g!= "X":
-      g = "X"
-      controle = 1
-    else:
-      print("essa posição já está ocupada")
-   elif jogador_1 == "h":
-    if h != "O" and h!= "X":
-     h = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   else:
-    if i != "O" and i!= "X":
-     i = "X"
-     controle = 1
-    else:
-     print("essa posição já está ocupada")
-   print(" a | b | c    "+" "+a+" | "+b+" | "+c)
-   print(" ---------    "+" ---------")
-   print(" d | e | f    "+" "+d+" | "+e+" | "+f)
-   print(" ---------    "+" ---------")
-   print(" g | h | i    "+" "+g+" | "+h+" | "+i)
-   resultado = comparar(a, b, c, d, e, f, g, h, i)
-  controle2 = 0
-  while controle2 != 1:
-    jogador_2 = input("Qual será a sua jogada Jogador_2? ")
-    if jogador_2 == "a":
+  if resultado == "nada":
+   while controle != 1:
+    jogador_1 = input("Qual será a sua jogada Jogador_1? ")
+    if jogador_1 == "a":
      if a != "O" and a!= "X":
-      a = "O"
-      controle2 = 1
+      a = "X"
+      controle = 1
+      resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
       print("essa posição já está ocupada")
-    elif jogador_2 == "b":
+    elif jogador_1 == "b":
      if b != "O" and b!= "X":
-      b = "O"
-      controle2 = 1
+      b = "X"
+      controle = 1
+      resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
       print("essa posição já está ocupada")
-    elif jogador_2 == "c":
+    elif jogador_1 == "c":
      if c != "O" and c!= "X":
-      c = "O"
-      controle2 = 1
+      c = "X"
+      controle = 1
+      resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
       print("essa posição já está ocupada")
-    elif jogador_2 == "d":
+    elif jogador_1 == "d":
      if d != "O" and d!= "X":
-      d = "O"
-      controle2 = 1
+      d = "X"
+      controle = 1
+      resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
       print("essa posição já está ocupada")
-    elif jogador_2 == "e":
+    elif jogador_1 == "e":
      if e != "O" and e!= "X":
-      e = "O"
-      controle2 = 1
+      e = "X"
+      controle = 1
+      resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
       print("essa posição já está ocupada")
-    elif jogador_2 == "f":
+    elif jogador_1 == "f":
      if f != "O" and f!= "X":
-      f = "O"
-      controle2 = 1
+      f = "X"
+      controle = 1
+      resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
       print("essa posição já está ocupada")
-    elif jogador_2 == "g":
+    elif jogador_1 == "g":
      if g != "O" and g!= "X":
-       g = "O"
-       controle2 = 1
+       g = "X"
+       controle = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
        print("essa posição já está ocupada")
-    elif jogador_2 == "h":
+    elif jogador_1 == "h":
      if h != "O" and h!= "X":
-      h = "O"
-      controle2 = 1
+      h = "X"
+      controle = 1
+      resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
       print("essa posição já está ocupada")
     else:
      if i != "O" and i!= "X":
-      i = "O"
-      controle2 = 1
+      i = "X"
+      controle = 1
+      resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
      else:
       print("essa posição já está ocupada")
     print(" a | b | c    "+" "+a+" | "+b+" | "+c)
@@ -346,7 +298,77 @@ def modo_mutiplayer():
     print(" d | e | f    "+" "+d+" | "+e+" | "+f)
     print(" ---------    "+" ---------")
     print(" g | h | i    "+" "+g+" | "+h+" | "+i)
-    resultado = comparar(a, b, c, d, e, f, g, h, i)
+  if resultado == "nada": 
+   controle2 = 0
+   while controle2 != 1:
+     jogador_2 = input("Qual será a sua jogada Jogador_2? ")
+     if jogador_2 == "a":
+      if a != "O" and a!= "X":
+       a = "O"
+       controle2 = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+       print("essa posição já está ocupada")
+     elif jogador_2 == "b":
+      if b != "O" and b!= "X":
+       b = "O"
+       controle2 = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+       print("essa posição já está ocupada")
+     elif jogador_2 == "c":
+      if c != "O" and c!= "X":
+       c = "O"
+       controle2 = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+       print("essa posição já está ocupada")
+     elif jogador_2 == "d":
+      if d != "O" and d!= "X":
+       d = "O"
+       controle2 = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+       print("essa posição já está ocupada")
+     elif jogador_2 == "e":
+      if e != "O" and e!= "X":
+       e = "O"
+       controle2 = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+       print("essa posição já está ocupada")
+     elif jogador_2 == "f":
+      if f != "O" and f!= "X":
+       f = "O"
+       controle2 = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+       print("essa posição já está ocupada")
+     elif jogador_2 == "g":
+      if g != "O" and g!= "X":
+        g = "O"
+        controle2 = 1
+        resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+        print("essa posição já está ocupada")
+     elif jogador_2 == "h":
+      if h != "O" and h!= "X":
+       h = "O"
+       controle2 = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+       print("essa posição já está ocupada")
+     else:
+      if i != "O" and i!= "X":
+       i = "O"
+       controle2 = 1
+       resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+      else:
+       print("essa posição já está ocupada")
+     print(" a | b | c    "+" "+a+" | "+b+" | "+c)
+     print(" ---------    "+" ---------")
+     print(" d | e | f    "+" "+d+" | "+e+" | "+f)
+     print(" ---------    "+" ---------")
+     print(" g | h | i    "+" "+g+" | "+h+" | "+i)
  vencedor_2P(resultado)
-  
 inicio()
