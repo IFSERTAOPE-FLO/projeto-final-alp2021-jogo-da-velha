@@ -68,20 +68,25 @@ def modo():
     modo_campeonato()
     condicao = "false"
   elif jogos == "2":
+    condicao = "false"
     while condicao2 == "true":
      print("Escolha quantos jogadores são:")
      print("1 / um jogador, 2 / dois jogadores")
      jogadores = input()
      if jogadores == "1":
+      condicao2 = "false"
       while resposta == "1":
        modo_singular()
-       condicao2 = "false"
        resposta = input("Quer jogar denovo? 1 / sim  2 / não ")
+       if resposta == "2":
+        print("Então até!")
      elif jogadores == "2":
+      condicao2 = "false"
       while resposta == "1":
        modo_mutiplayer()
-       condicao2 = "false"
        resposta = input("Querem jogar denovo? 1 / sim  2 / não ")
+       if resposta == "2":
+        print("Então até!")
      else:
       print("tente novamente")
   else:
@@ -110,8 +115,15 @@ def modo_campeonato():
       print("=-"*10)
       print("   Placar          |")
       print("=-"*10)
-      print("Jogador_1:", vitoria,"Jogador_2", derrota)
+      print("Jogador_1:", vitoria,"/",derrota,"Jogador_2")
       print("\n")
+      if vitoria > derrota:
+       print("O jogador_1 venceu!")
+      elif derrota > vitoria:
+       print("O jogador_2 venceu!")
+      else:
+       print("Empate!")
+       print("Ambos jogaram muito bem!")
     elif jogadores == "2":
      condicao3 = "false"
      partidas = input("Quantas partidas serão? ")
@@ -126,8 +138,15 @@ def modo_campeonato():
       print("=-"*10)
       print("   Placar")
       print("=-"*10)
-      print("Jogador_1:", vitoria,"Jogador_2", derrota)
+      print("Jogador_1:", vitoria,"/",derrota,":Jogador_2")
       print("\n")
+      if vitoria > derrota:
+       print("O jogador_1 venceu!")
+      elif derrota > vitoria:
+       print("O jogador_2 venceu!")
+      else:
+       print("Empate!")
+       print("Ambos jogaram muito bem!")
     else:
      print("tente novamente")
 def modo_singular():
