@@ -6,11 +6,11 @@ def vencedor(resultado):
      print("O jogador perdeu")
     else:
      print("Deu velha!")
-def vencedor_2P(resultado):
+def vencedor_2P(resultado, jogador1, jogador2):
     if resultado == "win":
-     print("O jogador_1 Venceu!")
+     print("O", jogador1, "Venceu!")
     elif resultado == "lose":
-     print("O jogador_2 Venceu!")
+     print("O", jogador2, "Venceu!")
     else:
      print("Deu velha!")
 def comparar(a, b, c, d, e, f, g, h, i, vs):
@@ -51,9 +51,11 @@ def comparar(a, b, c, d, e, f, g, h, i, vs):
  else:
   return "nada"
 def inicio():
- print("=-"*30)
- print("Jogo da velha")
- print("=-"*30)
+ print("*"*31)
+ print("*"*31)
+ print ("SEJA BEM VINDO AO JOGO DA VELHA")
+ print("*"*31)
+ print("*"*31)
  modo()
 def modo():
  condicao = "true"
@@ -65,9 +67,24 @@ def modo():
   print("1 / para campeonato, 2 / jogos avusos")
   jogos = input()
   if jogos == "1":
+   print("você deseja continuar?")
+   print("digite (1) para continuar")
+   print("digite (2) para voltar")
+   SIMUM = int(input(""))
+   if SIMUM == 2:
+    inicio()
+   else:
     modo_campeonato()
     condicao = "false"
   elif jogos == "2":
+   print("você deseja continuar?")
+   print("digite (1) para continuar")
+   print("digite (2) para voltar")
+   SIMUM = int(input(""))
+   if SIMUM == 2:
+    inicio()
+   else:
+    condicao = "false"
     condicao = "false"
     while condicao2 == "true":
      print("Escolha quantos jogadores são:")
@@ -105,6 +122,7 @@ def modo_campeonato():
      condicao3 = "false"
      partidas = int(input("Quantas partidas serão? "))
      while v != partidas:
+      Quem_comecara()
       result = modo_singular()
       v = v + 1
       if result == "win":
@@ -236,40 +254,281 @@ def modo_singular():
   controle2 = 0
   if resultado == "nada":
    while controle2 != 1:
-    jogador_2 = random.randint(1,9)
-    if jogador_2 == 1 and a != "O" and a!= "X":
-      a = "O"
-      print("O jogador_2 escolheu a posição a")
-      controle2 = 1
-    elif jogador_2 == 2 and b != "O" and b!= "X":
-      b = "O"
-      print("O jogador_2 escolheu a posição b")
-      controle2 = 1
-    elif jogador_2 == 3 and  c != "O" and c!= "X":
-       c = "O"
-       print("O jogador_2 escolheu a posição c")
+    if a == "O" and b == "O" and c != "X":
+     jogador_2 = 3
+     c = "O"
+     print("O jogador_2 escolheu a posição c")
+     controle2 = 1
+    elif a == "O" and c == "O" and b != "X":
+     jogador_2 = 2
+     b = "O"
+     print("O jogador_2 escolheu a posição b")
+     controle2 = 1
+    elif b == "O" and c == "O" and a != "X":
+     jogador_2 = 1
+     a = "O"
+     print("O jogador_2 escolheu a posição a")
+     controle2 = 1
+    elif d == "O" and e == "O" and f != "X":
+     jogador_2 = 6
+     f = "O"
+     print("O jogador_2 escolheu a posição f")
+     controle2 = 1
+    elif d == "O" and f == "O" and e != "X":
+     jogador_2 = 5
+     e = "O"
+     print("O jogador_2 escolheu a posição e")
+     controle2 = 1
+    elif e == "O" and f == "O" and d != "X":
+     jogador_2 = 4
+     d = "O"
+     print("O jogador_2 escolheu a posição d")
+     controle2 = 1
+    elif g == "O" and h == "O" and i != "X":
+     jogador_2 = 9
+     i = "O"
+     print("O jogador_2 escolheu a posição i")
+     controle2 = 1
+    elif g == "O" and i == "O"  and h != "X":
+     jogador_2 = 8
+     h = "O"
+     print("O jogador_2 escolheu a posição h")
+     controle2 = 1
+    elif h == "O" and i == "O" and g != "X":
+     jogador_2 = 7
+     g = "O"
+     print("O jogador_2 escolheu a posição g")
+     controle2 = 1
+    elif a == "O" and d == "O" and g != "X":
+     jogador_2 = 7
+     g = "O"
+     print("O jogador_2 escolheu a posição g")
+     controle2 = 1
+    elif a == "O" and g == "O" and d != "X":
+     jogador_2 = 4
+     d = "O"
+     print("O jogador_2 escolheu a posição d")
+     controle2 = 1
+    elif d == "O" and g == "O" and a != "X":
+     jogador_2 = 1
+     a = "O"
+     print("O jogador_2 escolheu a posição a")
+     controle2 = 1
+    elif b == "O" and e == "O" and h != "X":
+     jogador_2 = 8
+     h = "O"
+     print("O jogador_2 escolheu a posição h")
+     controle2 = 1
+    elif b == "O" and h == "O" and e != "X":
+     jogador_2 = 5
+     e = "O"
+     print("O jogador_2 escolheu a posição e")
+     controle2 = 1
+    elif e == "O" and h == "O" and b != "X":
+     jogador_2 = 2
+     b = "O"
+     print("O jogador_2 escolheu a posição b")
+     controle2 = 1
+    elif c == "O" and f == "O" and i != "X":
+     jogador_2 = 9
+     i = "O"
+     print("O jogador_2 escolheu a posição i")
+     controle2 = 1
+    elif c == "O" and i == "O" and f != "X":
+     jogador_2 = 6
+     f = "O"
+     print("O jogador_2 escolheu a posição f")
+     controle2 = 1
+    elif f == "O" and i == "O"  and c != "X":
+     jogador_2 = 3
+     c = "O"
+     print("O jogador_2 escolheu a posição c")
+     controle2 = 1
+    elif a == "O" and e == "O" and i != "X":
+     jogador_2 = 9
+     i = "O"
+     print("O jogador_2 escolheu a posição i")
+     controle2 = 1
+    elif a == "O" and i == "O" and e != "X":
+     jogador_2 = 5
+     e = "O"
+     print("O jogador_2 escolheu a posição e")
+     controle2 = 1
+    elif e == "O" and i == "O" and a != "X":
+     jogador_2 = 1
+     a = "O"
+     print("O jogador_2 escolheu a posição a")
+     controle2 = 1
+    elif c == "O" and e == "O" and g != "X":
+     jogador_2 = 7
+     g = "O"
+     print("O jogador_2 escolheu a posição g")
+     controle2 = 1
+    elif c == "O" and g == "O" and e != "X":
+     jogador_2 = 1
+     a = "O"
+     print("O jogador_2 escolheu a posição a")
+     controle2 = 1
+    elif e == "O" and g == "O" and c != "X":
+     jogador_2 = 3
+     c = "O"
+     print("O jogador_2 escolheu a posição c")
+     controle2 = 1
+    elif a == "X" and b == "X" and c != "O":
+     jogador_2 = 3
+     c = "O"
+     print("O jogador_2 escolheu a posição c")
+     controle2 = 1
+    elif a == "X" and c == "X" and b != "O":
+     jogador_2 = 2
+     b = "O"
+     print("O jogador_2 escolheu a posição b")
+     controle2 = 1
+    elif b == "X" and c == "X" and a != "O":
+     jogador_2 = 1
+     a = "O"
+     print("O jogador_2 escolheu a posição a")
+     controle2 = 1
+    elif d == "X" and e == "X" and f != "O":
+     jogador_2 = 6
+     f = "O"
+     print("O jogador_2 escolheu a posição f")
+     controle2 = 1
+    elif d == "X" and f == "X" and e != "O":
+     jogador_2 = 5
+     e = "O"
+     print("O jogador_2 escolheu a posição e")
+     controle2 = 1
+    elif e == "X" and f == "X" and d != "O":
+     jogador_2 = 4
+     d = "O"
+     print("O jogador_2 escolheu a posição d")
+     controle2 = 1
+    elif g == "X" and h == "X" and i != "O":
+     jogador_2 = 9
+     i = "O"
+     print("O jogador_2 escolheu a posição i")
+     controle2 = 1
+    elif g == "X" and i == "X" and h != "O":
+     jogador_2 = 8
+     h = "O"
+     print("O jogador_2 escolheu a posição h")
+     controle2 = 1
+    elif h == "X" and i == "X" and g != "O":
+     jogador_2 = 7
+     g = "O"
+     print("O jogador_2 escolheu a posição g")
+     controle2 = 1
+    elif a == "X" and d == "X" and g != "O":
+     jogador_2 = 7
+     g = "O"
+     print("O jogador_2 escolheu a posição g")
+     controle2 = 1
+    elif a == "X" and g == "X" and d != "O":
+     jogador_2 = 4
+     d = "O"
+     print("O jogador_2 escolheu a posição d")
+     controle2 = 1
+    elif d == "X" and g == "X" and a != "O":
+     jogador_2 = 1
+     a = "O"
+     print("O jogador_2 escolheu a posição a")
+     controle2 = 1
+    elif b == "X" and e == "X" and h != "O":
+     jogador_2 = 8
+     h = "O"
+     print("O jogador_2 escolheu a posição h")
+     controle2 = 1
+    elif b == "X" and h == "X" and e != "O":
+     jogador_2 = 5
+     e = "O"
+     print("O jogador_2 escolheu a posição e")
+     controle2 = 1
+    elif e == "X" and h == "X" and b != "O":
+     jogador_2 = 2
+     b = "O"
+     print("O jogador_2 escolheu a posição b")
+     controle2 = 1
+    elif c == "X" and f == "X" and i != "O":
+     jogador_2 = 9
+     i = "O"
+     print("O jogador_2 escolheu a posição i")
+     controle2 = 1
+    elif c == "X" and i == "X" and f != "O":
+     jogador_2 = 6
+     f = "O"
+     print("O jogador_2 escolheu a posição f")
+     controle2 = 1
+    elif f == "X" and i == "X" and c != "O":
+     jogador_2 = 3
+     c = "O"
+     print("O jogador_2 escolheu a posição c")
+     controle2 = 1
+    elif a == "X" and e == "X" and i != "O":
+     jogador_2 = 9
+     i = "O"
+     print("O jogador_2 escolheu a posição i")
+     controle2 = 1
+    elif a == "X" and i == "X" and e != "O":
+     jogador_2 = 5
+     e = "O"
+     print("O jogador_2 escolheu a posição e")
+     controle2 = 1
+    elif e == "X" and i == "X" and a != "O":
+     jogador_2 = 1
+     a = "O"
+     print("O jogador_2 escolheu a posição a")
+     controle2 = 1
+    elif c == "X" and e == "X" and g != "O":
+     jogador_2 = 7
+     g = "O"
+     print("O jogador_2 escolheu a posição g")
+     controle2 = 1
+    elif c == "X" and g == "X" and e != "O":
+     jogador_2 = 1
+     a = "O"
+     print("O jogador_2 escolheu a posição a")
+     controle2 = 1
+    elif e == "X" and g == "X" and c != "O":
+     jogador_2 = 3
+     c = "O"
+     print("O jogador_2 escolheu a posição c")
+     controle2 = 1
+    else:
+     jogador_2 = random.randint(1,9)
+     if jogador_2 == 1 and a != "O" and a!= "X":
+       a = "O"
+       print("O jogador_2 escolheu a posição a")
        controle2 = 1
-    elif jogador_2 == 4 and  d != "O" and d!= "X":
-       d = "O"
-       print("O jogador_2 escolheu a posição d")
+     elif jogador_2 == 2 and b != "O" and b!= "X":
+       b = "O"
+       print("O jogador_2 escolheu a posição b")
        controle2 = 1
-    elif jogador_2 == 5 and  e != "O" and e!= "X":
-       e = "O"
-       print("O jogador_2 escolheu a posição e")
-       controle2 = 1
-    elif jogador_2 == 6 and  f != "O" and f!= "X":
+     elif jogador_2 == 3 and  c != "O" and c!= "X":
+        c = "O"
+        print("O jogador_2 escolheu a posição c")
+        controle2 = 1
+     elif jogador_2 == 4 and  d != "O" and d!= "X":
+        d = "O"
+        print("O jogador_2 escolheu a posição d")
+        controle2 = 1
+     elif jogador_2 == 5 and  e != "O" and e!= "X":
+        e = "O"
+        print("O jogador_2 escolheu a posição e")
+        controle2 = 1
+     elif jogador_2 == 6 and  f != "O" and f!= "X":
        f = "O"
        print("O jogador_2 escolheu a posição f")
        controle2 = 1
-    elif jogador_2 == 7 and  g != "O" and g!= "X":
+     elif jogador_2 == 7 and  g != "O" and g!= "X":
        g = "O"
        print("O jogador_2 escolheu a posição g")
        controle2 = 1
-    elif jogador_2 == 8 and  h != "O" and h!= "X":
+     elif jogador_2 == 8 and  h != "O" and h!= "X":
        h = "O"
        print("O jogador_2 escolheu a posição h")
        controle2 = 1
-    elif jogador_2 == 9 and  i != "O" and i!= "X":
+     elif jogador_2 == 9 and  i != "O" and i!= "X":
        i = "O"
        print("O jogador_2 escolheu a posição i")
        controle2 = 1
@@ -288,7 +547,30 @@ def modo_singular():
   return "win"
  elif resultado == "lose":
   return "lose"
+def Quem_comecara():
+ import random
+ print("iremos sorteiar quem começarar e usarar X")
+ print("porfavor, espere 3 segundos")
+ import time
+ temp = time.localtime()
+ time.sleep(3)
+ sorteio = random.randint(1,2)
+ if sorteio == 1:
+  return "Usuario"
+ else:
+  return "Pc"
 def modo_mutiplayer():
+ J1vsJ2 = str(input("informe o nome do jogador "))
+ J2vsJ1 = str(input("informe o nome do segundo jogador "))
+ sorteidej = Quem_comecara()
+ if sorteidej == "Usuario":
+  J1 = print(J1vsJ2, "começarar e usarar X!")
+  jogador1 = J1vsJ2
+  jogador2 = J2vsJ1
+ else:
+  J2 = print(J2vsJ1,"começarar e usarar X!")
+  jogador1 = J2vsJ1
+  jogador2 = J1vsJ2
  a = " "
  b = " "
  c = " "
@@ -316,7 +598,8 @@ def modo_mutiplayer():
   controle = 0
   if resultado == "nada":
    while controle != 1:
-    jogador_1 = input("Qual será a sua jogada Jogador_1? ")
+    print(f"Qual será a sua jogada", jogador1+"?",end="")
+    jogador_1 = input()
     if jogador_1 == "a":
      if a != "O" and a!= "X":
       a = "X"
@@ -388,7 +671,8 @@ def modo_mutiplayer():
   if resultado == "nada": 
    controle2 = 0
    while controle2 != 1:
-     jogador_2 = input("Qual será a sua jogada Jogador_2? ")
+     print("Qual será a sua jogada", jogador2+"?",end="")
+     jogador_2 = input()
      if jogador_2 == "a":
       if a != "O" and a!= "X":
        a = "O"
@@ -457,7 +741,7 @@ def modo_mutiplayer():
      print(" d | e | f    "+" "+d+" | "+e+" | "+f)
      print(" ---------    "+" ---------")
      print(" g | h | i    "+" "+g+" | "+h+" | "+i)
- vencedor_2P(resultado)
+ vencedor_2P(resultado, jogador1, jogador2)
  if resultado == "win":
   return "win"
  elif resultado == "lose":
