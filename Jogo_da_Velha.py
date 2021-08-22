@@ -1,4 +1,5 @@
 import random
+import os
 def vencedor(resultado):
     if resultado == "win":
      print("O jogador Venceu!")
@@ -51,12 +52,34 @@ def comparar(a, b, c, d, e, f, g, h, i, vs):
  else:
   return "nada"
 def inicio():
- print("*"*31)
- print("*"*31)
- print ("SEJA BEM VINDO AO JOGO DA VELHA")
- print("*"*31)
- print("*"*31)
+ print("*="*19)
+ print("*="*19)
+ print ("*=*=SEJA BEM VINDO AO JOGO DA VELHA=*=")
+ print("*="*19)
+ print("*="*19)
  modo()
+def level():
+ print("Escolha o level")
+ print("1 \ fácil, 2 \ médio, 3 \ hard")
+ lev = input()
+ if lev == "1":
+  os.system("cls")
+  Level_Facil()
+ if lev == "3":
+  os.system("cls")
+  modo_singular()
+ if lev == "2":
+  print("falta termina")
+def s_n():
+ print("Digite")
+ print("1 \ para reiniciar 2 \ para sair")
+ Sair_N = input()
+ if Sair_N == "1":
+  inicio()
+  os.system("cls")
+ if Sair_N == "2":
+  os.system("cls")
+  print("até")
 def modo():
  condicao = "true"
  condicao2 = "true"
@@ -64,22 +87,27 @@ def modo():
  jogadores = ""
  while condicao == "true":
   print("Escolha o modo de Jogo:")
+  print("*="*19) 
   print("1 / para campeonato, 2 / jogos avusos")
+  print("*="*19) 
   jogos = input()
   if jogos == "1":
+   os.system("cls")
    print("você deseja continuar?")
-   print("digite (1) para continuar")
-   print("digite (2) para voltar")
+   print("*="*19)
+   print("1 / para continuar 2 / para reiniciar")
+   print("*="*19)
    SIMUM = int(input(""))
    if SIMUM == 2:
+    os.system("cls")
     inicio()
    else:
-    modo_campeonato()
-    condicao = "false"
+	   	modo_campeonato()
   elif jogos == "2":
    print("você deseja continuar?")
-   print("digite (1) para continuar")
-   print("digite (2) para voltar")
+   print("*="*19)
+   print("1 / para continuar 2 / para reiniciar")
+   print("*="*19)
    SIMUM = int(input(""))
    if SIMUM == 2:
     inicio()
@@ -96,18 +124,163 @@ def modo():
        modo_singular()
        resposta = input("Quer jogar denovo? 1 / sim  2 / não ")
        if resposta == "2":
-        print("Então até!")
+        s_n()
      elif jogadores == "2":
       condicao2 = "false"
       while resposta == "1":
        modo_mutiplayer()
        resposta = input("Querem jogar denovo? 1 / sim  2 / não ")
        if resposta == "2":
-        print("Então até!")
+        print("até")
      else:
       print("tente novamente")
   else:
     print("tente novamente")
+def Level_Facil():
+ a = " "
+ b = " "
+ c = " "
+ d = " "
+ e = " "
+ f = " "
+ g = " "
+ h = " "
+ i = " "
+ resultado = "nada"
+ jogador_1 = ""
+ jogador_2 = ""
+ controle = 0
+ controle2 = 0
+ vitorias = 0
+ derrotas = 0
+ vs = 0
+ while resultado == "nada":
+  os.system("cls")
+  print("*="*12)
+  print(" a | b | c    "+" "+a+" | "+b+" | "+c)
+  print(" ---------    "+" ---------")
+  print(" d | e | f    "+" "+d+" | "+e+" | "+f)
+  print(" ---------    "+" ---------")
+  print(" g | h | i    "+" "+g+" | "+h+" | "+i)
+  print("*="*12)
+  controle = 0
+  vs = vs + 1
+  if resultado == "nada":
+   while controle != 1:
+    jogador_1 = input("Qual será a sua jogada? ")
+    if jogador_1 == "a":
+     if a != "O" and a!= "X":
+      a = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "b":
+     if b != "O" and b!= "X":
+      b = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "c":
+     if c != "O" and c!= "X":
+      c = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "d":
+     if d != "O" and d!= "X":
+      d = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "e":
+     if e != "O" and e!= "X":
+      e = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "f":
+     if f != "O" and f!= "X":
+      f = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    elif jogador_1 == "g":
+     if g != "O" and g!= "X":
+       g = "X"
+       controle = 1
+     else:
+       print("essa posição já está ocupada")
+    elif jogador_1 == "h":
+     if h != "O" and h!= "X":
+      h = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+    else:
+     if i != "O" and i!= "X":
+      i = "X"
+      controle = 1
+     else:
+      print("essa posição já está ocupada")
+  resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+  controle2 = 0
+  if resultado == "nada":
+   while controle2 != 1:
+    jogador_2 = random.randint(1,9)
+    if jogador_2 == 1 and a != "O" and a!= "X":
+      a = "O"
+      print("O jogador_2 escolheu a posição a")
+      controle2 = 1
+    elif jogador_2 == 2 and b != "O" and b!= "X":
+      b = "O"
+      print("O jogador_2 escolheu a posição b")
+      controle2 = 1
+    elif jogador_2 == 3 and  c != "O" and c!= "X":
+       c = "O"
+       print("O jogador_2 escolheu a posição c")
+       controle2 = 1
+    elif jogador_2 == 4 and  d != "O" and d!= "X":
+       d = "O"
+       print("O jogador_2 escolheu a posição d")
+       controle2 = 1
+    elif jogador_2 == 5 and  e != "O" and e!= "X":
+       e = "O"
+       print("O jogador_2 escolheu a posição e")
+       controle2 = 1
+    elif jogador_2 == 6 and  f != "O" and f!= "X":
+       f = "O"
+       print("O jogador_2 escolheu a posição f")
+       controle2 = 1
+    elif jogador_2 == 7 and  g != "O" and g!= "X":
+       g = "O"
+       print("O jogador_2 escolheu a posição g")
+       controle2 = 1
+    elif jogador_2 == 8 and  h != "O" and h!= "X":
+       h = "O"
+       print("O jogador_2 escolheu a posição h")
+       controle2 = 1
+    elif jogador_2 == 9 and  i != "O" and i!= "X":
+       i = "O"
+       print("O jogador_2 escolheu a posição i")
+       controle2 = 1
+    resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+ os.system("cls")
+ print("*="*12)
+ print(" a | b | c    "+" "+a+" | "+b+" | "+c)
+ print(" ---------    "+" ---------")
+ print(" d | e | f    "+" "+d+" | "+e+" | "+f)
+ print(" ---------    "+" ---------")
+ print(" g | h | i    "+" "+g+" | "+h+" | "+i)
+ print("*="*12)
+ if resultado == "win":
+  vitorias = vitorias + 1
+ elif resultado == "lose":
+  derrotas = derrotas + 1
+ vencedor(resultado)
+ if resultado == "win":
+  return "win"
+ elif resultado == "lose":
+  return "lose"
 def modo_campeonato():
  v = 0
  condicao3 = "true"
@@ -122,8 +295,7 @@ def modo_campeonato():
      condicao3 = "false"
      partidas = int(input("Quantas partidas serão? "))
      while v != partidas:
-      Quem_comecara()
-      result = modo_singular()
+      result = level()	 
       v = v + 1
       if result == "win":
         vitoria = vitoria + 1 
@@ -131,7 +303,7 @@ def modo_campeonato():
         derrota = derrota + 1
       print("\n")
       print("=-"*10)
-      print("   Placar          |")
+      print("|      Placar      |")
       print("=-"*10)
       print("Jogador_1:", vitoria,"/",derrota,"Jogador_2")
       print("\n")
@@ -166,7 +338,7 @@ def modo_campeonato():
        print("Empate!")
        print("Ambos jogaram muito bem!")
     else:
-     print("tente novamente")
+     print("tente novamente") 
 def modo_singular():
  a = " "
  b = " "
@@ -186,11 +358,14 @@ def modo_singular():
  derrotas = 0
  vs = 0
  while resultado == "nada":
-  print(" a | b | c    "+" "+a+" | "+b+" | "+c)
-  print(" ---------    "+" ---------")
-  print(" d | e | f    "+" "+d+" | "+e+" | "+f)
-  print(" ---------    "+" ---------")
-  print(" g | h | i    "+" "+g+" | "+h+" | "+i)
+  os.system("cls")
+  print("*="*12)
+  print(" a | b | c   "+" "+a+" | "+b+" | "+c)
+  print(" ---------   "+" ---------")
+  print(" d | e | f   "+" "+d+" | "+e+" | "+f)
+  print(" ---------   "+" ---------")
+  print(" g | h | i   "+" "+g+" | "+h+" | "+i)
+  print("*="*12) 
   controle = 0
   vs = vs + 1
   if resultado == "nada":
@@ -533,6 +708,7 @@ def modo_singular():
        print("O jogador_2 escolheu a posição i")
        controle2 = 1
     resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+ os.system("cls")
  print(" a | b | c    "+" "+a+" | "+b+" | "+c)
  print(" ---------    "+" ---------")
  print(" d | e | f    "+" "+d+" | "+e+" | "+f)
@@ -548,12 +724,41 @@ def modo_singular():
  elif resultado == "lose":
   return "lose"
 def Quem_comecara():
- import random
+ import time
  print("iremos sorteiar quem começarar e usarar X")
  print("porfavor, espere 3 segundos")
- import time
  temp = time.localtime()
- time.sleep(3)
+ time.sleep(1)
+ os.system("cls")
+ print("*=*=*=*=*=*=*=")
+ print("=    *****   *")
+ print("*       **   =")
+ print("=    *****   *")
+ print("*       **   =")
+ print("=    *****   *")
+ print("*=*=*=*=*=*=*=")
+ time.sleep(1)
+ os.system("cls")
+ print("*=*=*=*=*=*=*=")
+ print("=  ******    *")
+ print("*      **  * =")
+ print("=  ********* *")
+ print("*  **  **    =")
+ print("=  ******    *")
+ print("*=*=*=*=*=*=*=")
+ time.sleep(1)
+ os.system("cls")
+ print("*=*=*=*=*=*=*=")
+ print("=     **     *")
+ print("*   *  *     =")
+ print("=      *     *")
+ print("*      *     =")
+ print("=    *****   *")
+ print("*=*=*=*=*=*=*=")	
+ time.sleep(1)
+ os.system("cls")
+ print("RESULTADO:")
+ print("*="*15)
  sorteio = random.randint(1,2)
  if sorteio == 1:
   return "Usuario"
@@ -593,6 +798,7 @@ def modo_mutiplayer():
  print(" d | e | f    "+" "+d+" | "+e+" | "+f)
  print(" ---------    "+" ---------")
  print(" g | h | i    "+" "+g+" | "+h+" | "+i)
+ print("*="*12)
  while resultado == "nada":
   vs = vs + 1
   controle = 0
