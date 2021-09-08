@@ -182,6 +182,7 @@ def modo():
         resposta = input("Quer jogar denovo? 1 / sim  2 / não ")
         if resposta == "2":
          s_n()
+         condicao2 = "false"
       else:
        while resposta == "1":
         modo_singular_5_por_5()
@@ -236,6 +237,9 @@ def Level_Facil():
  vs = 0
  while resultado == "nada":
   os.system("cls")
+  tabela[0][0] = " a | b | c    "+" "+a+" | "+b+" | "+c
+  tabela[2][0] = " d | e | f    "+" "+d+" | "+e+" | "+f
+  tabela[4][0] = " g | h | i    "+" "+g+" | "+h+" | "+i
   print("*="*12)
   print(tabela[0][0])
   print(tabela[1][0])
@@ -243,9 +247,6 @@ def Level_Facil():
   print(tabela[3][0])
   print(tabela[4][0])
   print("*="*12)
-  tabela[0][0] = " a | b | c    "+" "+a+" | "+b+" | "+c
-  tabela[2][0] = " d | e | f    "+" "+d+" | "+e+" | "+f
-  tabela[4][0] = " g | h | i    "+" "+g+" | "+h+" | "+i
   controle = 0
   vs = vs + 1
   if resultado == "nada":
@@ -347,16 +348,23 @@ def Level_Facil():
        print("O jogador_2 escolheu a posição i")
        controle2 = 1
     resultado = comparar(a, b, c, d, e, f, g, h, i, vs)
+    print("*="*12)
+    print(tabela[0][0])
+    print(tabela[1][0])
+    print(tabela[2][0])
+    print(tabela[3][0])
+    print(tabela[4][0])
+    print("*="*12)
  os.system("cls")
  tabela[0][0] = " a | b | c    "+" "+a+" | "+b+" | "+c
  tabela[2][0] = " d | e | f    "+" "+d+" | "+e+" | "+f
  tabela[4][0] = " g | h | i    "+" "+g+" | "+h+" | "+i
  print("*="*12)
- print(" a | b | c    "+" "+a+" | "+b+" | "+c)
- print(" ---------    "+" ---------")
- print(" d | e | f    "+" "+d+" | "+e+" | "+f)
- print(" ---------    "+" ---------")
- print(" g | h | i    "+" "+g+" | "+h+" | "+i)
+ print(tabela[0][0])
+ print(tabela[1][0])
+ print(tabela[2][0])
+ print(tabela[3][0])
+ print(tabela[4][0])
  print("*="*12)
  if resultado == "win":
   vitorias = vitorias + 1
@@ -426,6 +434,8 @@ def modo_campeonato():
      print("Qual será a tabela:")
      tabela = input("1 \ (3 por 3),    2 \ (5 por 5) ")
      if tabela == "1":
+      J1vsJ2 = str(input("informe o nome do jogador "))
+      J2vsJ1 = str(input("informe o nome do segundo jogador "))
       while v != partidas:
        result = modo_mutiplayer(J1vsJ2, J2vsJ1)
        v = v + 1
@@ -447,6 +457,8 @@ def modo_campeonato():
         print("Empate!")
         print("Ambos jogaram muito bem!")
      else:
+      J1vsJ2 = str(input("informe o nome do jogador "))
+      J2vsJ1 = str(input("informe o nome do segundo jogador "))
       while v != partidas:
        result = modo_mutiplayer_5_por_5(J1vsJ2, J2vsJ1)
        v = v + 1
@@ -851,11 +863,11 @@ def modo_singular():
  tabela[0][0] = " a | b | c    "+" "+a+" | "+b+" | "+c
  tabela[2][0] = " d | e | f    "+" "+d+" | "+e+" | "+f
  tabela[4][0] = " g | h | i    "+" "+g+" | "+h+" | "+i
- print(" a | b | c    "+" "+a+" | "+b+" | "+c)
- print(" ---------    "+" ---------")
- print(" d | e | f    "+" "+d+" | "+e+" | "+f)
- print(" ---------    "+" ---------")
- print(" g | h | i    "+" "+g+" | "+h+" | "+i)
+ print(tabela[0][0])
+ print(tabela[1][0])
+ print(tabela[2][0])
+ print(tabela[3][0])
+ print(tabela[4][0])
  if resultado == "win":
   vitorias = vitorias + 1
  elif resultado == "lose":
